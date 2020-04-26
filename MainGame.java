@@ -43,7 +43,7 @@ public class MainGame extends JFrame
         c.setLayout(new BoxLayout(c, BoxLayout.Y_AXIS));
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(400, 200);
+        setSize(700, 300);
         setLocation(500, 280);
         setVisible(true);
         

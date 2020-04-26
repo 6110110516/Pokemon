@@ -24,27 +24,30 @@ public class NewPokemon extends JFrame{
         JPanel panel1 = new JPanel();
         panel1.setLayout(new GridBagLayout());
 
-        Box sizeBox = Box.createVerticalBox();
-        ButtonGroup sizeGroup = new ButtonGroup();
-        sizeGroup.add(Bulbasaur);
-        sizeGroup.add(Charmander);
-        sizeGroup.add(Squirtle);
-        sizeBox.add(Bulbasaur);
-        sizeBox.add(Charmander);
-        sizeBox.add(Squirtle);
-        sizeBox.setBorder(BorderFactory.createTitledBorder("Type"));
-        addItem(panel1, sizeBox, 0, 3, 1, 1, GridBagConstraints.NORTH);
+      
+        addItem(panel1, Bulbasaur, 0, 0, 1, 1, GridBagConstraints.CENTER);
+        addItem(panel1, Charmander, 1, 0, 1, 1, GridBagConstraints.CENTER);
+        addItem(panel1, Squirtle, 2, 0, 1, 1, GridBagConstraints.CENTER);
+
+        addItem(panel1, new JLabel("Name:"), 0, 3, 1, 1, GridBagConstraints.EAST);
+        addItem(panel1, name, 1, 3, 2, 1, GridBagConstraints.WEST);
+        
 
         Box buttonBox = Box.createHorizontalBox();
         buttonBox.add(okButton);
         buttonBox.add(Box.createHorizontalStrut(20));
         buttonBox.add(closeButton);
-        addItem(panel1, buttonBox, 2, 4, 1, 1, GridBagConstraints.NORTH);
+        addItem(panel1, buttonBox, 2, 4, 1, 1, GridBagConstraints.CENTER);
+
+        closeButton.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                setVisible(false);
+            }});
 
 
         this.add(panel1);
         this.pack();
-        this.setSize(400, 200);
+        this.setSize(700, 300);
         this.setLocation(500, 280);
         this.setVisible(true);
     }
