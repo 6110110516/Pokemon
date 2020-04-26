@@ -1,30 +1,88 @@
 import java.io.*;
 import java.util.Scanner;
 import java.util.ArrayList;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.BoxLayout;
+import javax.swing.Box;
+import javax.swing.BorderFactory;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Insets;
+import java.awt.GridLayout;
+import java.awt.Component;
+import java.awt.FlowLayout;
+import java.awt.*;  
+import java.awt.event.*;  
 
-public class PokemonGame extends Pokemon
-{
+public class PokemonGame extends Pokemon {
     static Pokemon[] MyPokemon = new Pokemon[10];
+
+    
+          
     
     public static void main(String args[])
     {
         // Pokemon[] MyPokemon = new Pokemon[10];
         // ArrayList<Pokemon> num;
+
+
+        JFrame.setDefaultLookAndFeelDecorated(true);
+        JFrame frame = new JFrame("My App");
+        
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 200);
+        frame.setVisible(true);
+           
+        JPanel panel = new JPanel();
+        
         for(int i=0;i<10;i++)
             {
                 MyPokemon[i] = new Pokemon();
             }
         int i = 1;
+        
         while(i == 1)
         {
             
-            System.out.println("************************************");
-            System.out.println("'1' New Pokemon");
-            System.out.println("'2' Check Pokemon");
-            System.out.println("'3' Quit Game");
-            System.out.println("************************************");
             
+            // System.out.println("************************************");
+            // System.out.println("'1' New Pokemon");
+            // System.out.println("'2' Check Pokemon");
+            // System.out.println("'3' Quit Game");
+            // System.out.println("************************************");
+            BoxLayout boxlayout = new BoxLayout(panel, BoxLayout.Y_AXIS);
+            panel.setLayout(boxlayout);
+            panel.setBorder(new EmptyBorder(new Insets(100, 150, 100, 150)));
+            JButton jb1 = new JButton("New Pokemon");
+            JButton jb2 = new JButton("Check Pokemon");
+            JButton jb3 = new JButton("Quit ");
+            
+            jb1.addActionListener(new ActionListener(){  
+                public void actionPerformed(ActionEvent e){  
+                    selectslot( );
+                }  });
+
+            jb3.addActionListener(new ActionListener(){  
+                public void actionPerformed(ActionEvent e){  
+                    System.exit(0);
+                }  });
+
+            jb1.setAlignmentX(Component.CENTER_ALIGNMENT);
+            jb2.setAlignmentX(Component.CENTER_ALIGNMENT);
+            jb3.setAlignmentX(Component.CENTER_ALIGNMENT);
+            panel.add(jb1);
+            panel.add(jb2);
+            panel.add(jb3);
+
+            frame.setLayout(new FlowLayout());
+            frame.add(panel);
+            frame.pack();
+            frame.setVisible(true);
 
             Scanner manuP = new Scanner(System.in);
             int choose = manuP.nextInt();
@@ -150,6 +208,7 @@ public class PokemonGame extends Pokemon
         System.out.println("************************************");
     }
 
+    
 }
 
 
