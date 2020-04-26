@@ -18,13 +18,19 @@ public class MainGame extends JFrame
         JButton jb1 = new JButton("New Pokemon");
         JButton jb2 = new JButton("Slot Pokemon");
         JButton jb3 = new JButton("Quit");
-        
+        jb1.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                NewPokemon Newpokemon = new NewPokemon();
+                Newpokemon.setVisible(true);
+
+                
+            }});
         
 
         jb3.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
                 System.exit(0);
-            }  });
+            }});
         jb1.setAlignmentX(Component.CENTER_ALIGNMENT);
         jb2.setAlignmentX(Component.CENTER_ALIGNMENT);
         jb3.setAlignmentX(Component.CENTER_ALIGNMENT);
