@@ -2,19 +2,15 @@
 
 public class Pokemon
 {
-    private static int level ;
-    private static int HP ;
-    private static int SP ;
+    private static int level = 0;
+    private static int HP = 0;
+    private static int SP = 0;
     private String nameP = "---";
+    private String name = "---";
     public static void main(String[] args){
     
     }
-    public  Pokemon()
-    {
-        Nopoke();
-
-    }
-    
+      
     public String getnameP()
     { return nameP; }
 
@@ -27,14 +23,11 @@ public class Pokemon
     public int getSP()
     { return SP; }
 
-    public void Nopoke()
-    {
-        nameP ="--";
-        level = 0;
-        HP = 0;
-        SP = 0;
+    public void Name(String name){
+        this.name = name;
     }
 
+   
     public void poke1()
     {
         nameP ="Bulbasaur";

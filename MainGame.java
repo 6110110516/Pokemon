@@ -5,7 +5,7 @@ import java.awt.event.*;
 
 public class MainGame extends JFrame
 {
-    private Trainer trainer;
+        private Trainer trainer;
 
         public MainGame(Trainer trainer){
         super("Pokemon Hio");
@@ -20,12 +20,17 @@ public class MainGame extends JFrame
         JButton jb3 = new JButton("Quit");
         jb1.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
-                NewPokemon Newpokemon = new NewPokemon();
+                NewPokemon Newpokemon = new NewPokemon(trainer.slot().get(0));
                 Newpokemon.setVisible(true);
 
                 
             }});
         
+        jb2.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                PokemonStatus Status = new PokemonStatus(trainer.slot().get(0));
+                Status.setVisible(true);
+            }});
 
         jb3.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
