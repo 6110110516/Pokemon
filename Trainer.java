@@ -7,11 +7,6 @@ public class Trainer {
     public Trainer(String name){
         slot = new ArrayList<Pokemon>();
 
-        pokemon = new Pokemon();
-        pokemon.poke1();
-
-        slot.add(pokemon);
-
         this.name = name;
     }
     public ArrayList<Pokemon> slot(){
@@ -22,10 +17,12 @@ public class Trainer {
         return this.name;
     }
 
-    // public Pokemon addP(){
-    //     Pokemon pokemon = pokemon.poke1();
-    //     return pokemon;
-    // }
+    public void addP(){
+        pokemon = new Pokemon();
+        pokemon.Nopoke();
+
+        slot.add(pokemon);
+    }
 
     public void play(){
         int i = 1;

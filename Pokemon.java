@@ -26,7 +26,13 @@ public class Pokemon
     public void Name(String name){
         this.name = name;
     }
-
+    public void Nopoke()
+    {
+        nameP ="--";
+        level = 0;
+        HP = 0;
+        SP = 0;
+    }
    
     public void poke1()
     {

@@ -1,13 +1,15 @@
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.*;
 
 public class NewPokemon extends JFrame{
     
-    Pokemon pokemon;
-    public NewPokemon(Pokemon pokemon){
+    private Trainer trainer;
+   
+    public NewPokemon(Trainer trainer){
         super("New Pokemon");
-        this.pokemon = pokemon;
+        this.trainer = trainer;
         JTextField name = new JTextField(20);
 
         JRadioButton Bulbasaur = new JRadioButton("Bulbasaur"); 
@@ -17,7 +19,7 @@ public class NewPokemon extends JFrame{
         JButton okButton = new JButton("New"); 
         JButton closeButton = new JButton("Close");
     
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
 
         JPanel panel1 = new JPanel();
         panel1.setLayout(new GridBagLayout());
@@ -45,26 +47,40 @@ public class NewPokemon extends JFrame{
         
         okButton.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
-                if(name.getText() != "" && Bulbasaur.isSelected()){
-                    pokemon.Name(name.getText());
-                    pokemon.poke1();
+                if (name.getText().length() == 0||((Bulbasaur.isSelected() == false ) && (Charmander.isSelected() == false) && (Squirtle.isSelected() == false))){
+                }
+                else{
+                if(trainer.slot().size() == 1){
+                
+
+                }
+                else if(name.getText() != "" && Bulbasaur.isSelected()){
+                    trainer.addP();
+                    trainer.slot().get(0).Name(name.getText());
+                    trainer.slot().get(0).poke1();
+                   
                 }
                 else if(name.getText() != "" && Charmander.isSelected()){
-                    pokemon.Name(name.getText());
-                    pokemon.poke2();
+                    trainer.addP();
+                    trainer.slot().get(0).Name(name.getText());
+                    trainer.slot().get(0).poke2();
+                   
                 }
                 else if(name.getText() != "" && Squirtle.isSelected()){
-                    pokemon.Name(name.getText());
-                    pokemon.poke3();
+                    trainer.addP();
+                    trainer.slot().get(0).Name(name.getText());
+                    trainer.slot().get(0).poke3();
                 }
+                
                 setVisible(false);
+            }
             }});
 
         closeButton.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
                 setVisible(false);
             }});
-
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.add(panel1);
         this.pack();
         this.setSize(700, 300);
