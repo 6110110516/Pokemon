@@ -2,31 +2,52 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class PokemonStatus extends JFrame
-{   
-    private Trainer trainer;
+public class UseItem extends JFrame{
+    private final Trainer trainer;
 
-    public PokemonStatus(Trainer trainer){
-        super("Pokemon Status ");
+    public UseItem(Trainer trainer){
+        super("UseItem");
         this.trainer = trainer;
         int n = trainer.slot().size();
 
         JPanel panel1 = new JPanel();
         panel1.setLayout(new GridBagLayout());
 
-        Box textBox = Box.createVerticalBox();
-
+        Box[] box = new Box[10];
+        for(int i =0; i < 10;i++){
+            box[i] = Box.createHorizontalBox();
+        }
+        Box potionBox = Box.createVerticalBox();
+        System.out.println(n);
         JLabel[] labels = new JLabel[10];
+        JButton[] usebutton = new JButton[10];
         
         for (int i =  0; i < 10; i++) {
-            if(i < n)
-                labels[i] = new JLabel( i+1 + "  name : " + trainer.slot().get(i).getnameP() + "  level : " + trainer.slot().get(i).getlevel() + "  exp : " + trainer.slot().get(i).getexp());
-            else
-                labels[i] = new JLabel(i+1 + "---");
-            textBox.add(labels[i]);
-            textBox.add(Box.createVerticalStrut(5));
+            
+            
+            if(i < n){
+                
+                labels[i] = new JLabel( i+1 + "  name : " + trainer.slot().get(i).getnameP() +"  level : " + trainer.slot().get(i).getlevel() + "  exp : " + trainer.slot().get(i).getexp());
+                usebutton[i] = new JButton("Use Potion");
+                potionBox.add(usebutton[i]);
+                box[i].add(labels[i]);   
+                box[i].add(Box.createHorizontalStrut(5));         
+                box[i].add(usebutton[i]);
+                
+                
             }
-        addItem(panel1, textBox, 1, 0, 1, 1, GridBagConstraints.CENTER);
+            else{
+                labels[i] = new JLabel(i+1 + "---");
+                // usebutton[i] = new JButton("---");
+                box[i].add(labels[i]); 
+            }
+              
+            
+            potionBox.add(box[i]);
+            potionBox.add(Box.createVerticalStrut(5));
+            }
+        
+        addItem(panel1, potionBox, 1, 0, 1, 1, GridBagConstraints.CENTER);
 
         JButton close = new JButton("Close");
         JButton useButton = new JButton("Use item");
@@ -47,18 +68,10 @@ public class PokemonStatus extends JFrame
                 
             }});
 
-        useButton.addActionListener(new ActionListener(){  
-            public void actionPerformed(ActionEvent e){  
-                UseItem useitem = new UseItem(trainer);
-                useitem.setVisible(true);
-                setVisible(false);
-            }});    
-        
-
         close.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
-                MainGame maingame = new MainGame(trainer);
-                maingame.setVisible(true);
+                PokemonStatus Status = new PokemonStatus(trainer);
+                Status.setVisible(true);
                 setVisible(false);
             }});
 
@@ -84,4 +97,5 @@ public class PokemonStatus extends JFrame
             gc.fill = GridBagConstraints.NONE;
             p.add(c, gc);
         }
+
 }

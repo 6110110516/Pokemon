@@ -30,7 +30,7 @@ public class MainGame extends JFrame
         jb1.setAlignmentX(JButton.CENTER_ALIGNMENT);
         jb2.setAlignmentX(JButton.CENTER_ALIGNMENT);
         jb3.setAlignmentX(JButton.CENTER_ALIGNMENT);
-        System.out.println(trainer.slot().size());
+        // System.out.println(trainer.slot().size());
         addItem(panel1, buttonBox, 3, 4, 1, 1, GridBagConstraints.CENTER);
         
         jb1.addActionListener(new ActionListener(){  
@@ -38,6 +38,7 @@ public class MainGame extends JFrame
                 if(trainer.slot().size() == 0){
                 NewPokemon Newpokemon = new NewPokemon(trainer);
                 Newpokemon.setVisible(true);
+                setVisible(false);
                 }
             }
             
@@ -47,6 +48,7 @@ public class MainGame extends JFrame
             public void actionPerformed(ActionEvent e){  
                 PokemonStatus Status = new PokemonStatus(trainer);
                 Status.setVisible(true);
+                setVisible(false);
             }});
 
         jb3.addActionListener(new ActionListener(){  
@@ -59,8 +61,8 @@ public class MainGame extends JFrame
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.add(panel1);
         this.pack();
-        setSize(700, 300);
-        setLocation(500, 280);
+        setSize(1000, 600);
+        setLocation((Toolkit.getDefaultToolkit().getScreenSize().width  - getSize().width) / 2, (Toolkit.getDefaultToolkit().getScreenSize().height - getSize().height) / 2);
         setVisible(true);
         
     }

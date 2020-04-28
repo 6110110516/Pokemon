@@ -17,6 +17,7 @@ public class NewPokemon extends JFrame{
         JRadioButton Squirtle = new JRadioButton("Squirtle");
 
         JButton okButton = new JButton("New"); 
+        
         JButton closeButton = new JButton("Close");
     
         
@@ -73,19 +74,25 @@ public class NewPokemon extends JFrame{
                 }
                 
                 setVisible(false);
+                MainGame maingame = new MainGame(trainer);
+                maingame.setVisible(true);
             }
             }});
 
         closeButton.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
                 setVisible(false);
+                MainGame maingame = new MainGame(trainer);
+                maingame.setVisible(true);
+                setVisible(false);
             }});
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.add(panel1);
-        this.pack();
-        this.setSize(700, 300);
-        this.setLocation(500, 280);
-        this.setVisible(true);
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        add(panel1);
+        pack();
+        setSize(1000, 600);
+        setLocation((Toolkit.getDefaultToolkit().getScreenSize().width  - getSize().width) / 2, (Toolkit.getDefaultToolkit().getScreenSize().height - getSize().height) / 2);
+        setVisible(true);
     }
 
     
