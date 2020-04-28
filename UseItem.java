@@ -3,31 +3,34 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class UseItem extends JFrame{
-    private final Trainer trainer;
-
+    private  Trainer trainer;
+    private int i = 0;
     public UseItem(Trainer trainer){
         super("UseItem");
         this.trainer = trainer;
         int n = trainer.slot().size();
-
+        
         JPanel panel1 = new JPanel();
         panel1.setLayout(new GridBagLayout());
 
         Box[] box = new Box[10];
-        for(int i =0; i < 10;i++){
+        for( i =0; i < 10;i++){
             box[i] = Box.createHorizontalBox();
         }
         Box potionBox = Box.createVerticalBox();
-        System.out.println(n);
+        // System.out.println(n);
+        JLabel nopotion = new JLabel("No Potion");
         JLabel[] labels = new JLabel[10];
         JButton[] usebutton = new JButton[10];
         
-        for (int i =  0; i < 10; i++) {
+        
+
+        for ( i =  0; i < 10; i++) {
             
             
             if(i < n){
                 
-                labels[i] = new JLabel( i+1 + "  name : " + trainer.slot().get(i).getnameP() +"  level : " + trainer.slot().get(i).getlevel() + "  exp : " + trainer.slot().get(i).getexp());
+                labels[i] = new JLabel( i+1 + " |  name : " + trainer.slot().get(i).getname() + "|  type : " + trainer.slot().get(i).getnameP() +"|  level : " + trainer.slot().get(i).getlevel() + "|  exp : " + trainer.slot().get(i).getexp()+" | ");
                 usebutton[i] = new JButton("Use Potion");
                 potionBox.add(usebutton[i]);
                 box[i].add(labels[i]);   
@@ -50,18 +53,121 @@ public class UseItem extends JFrame{
         addItem(panel1, potionBox, 1, 0, 1, 1, GridBagConstraints.CENTER);
 
         JButton close = new JButton("Close");
-        JButton useButton = new JButton("Use item");
+        
         JButton okButton = new JButton("expup"); 
            
                                             
         Box buttonBox = Box.createHorizontalBox();
         buttonBox.add(okButton);
         buttonBox.add(Box.createHorizontalStrut(20));
-        buttonBox.add(useButton);
-        buttonBox.add(Box.createHorizontalStrut(20));
+       
         buttonBox.add(close);
         addItem(panel1, buttonBox, 1, 4, 1, 1, GridBagConstraints.CENTER);
+        if(trainer.getpotion() > 0){
+            System.out.println(trainer.getpotion());
+            if( n > 0)
+            usebutton[0].addActionListener(new ActionListener(){  
+                public void actionPerformed(ActionEvent e){  
+                    trainer.GetExp(trainer.slot().get(0),30);
+                    trainer.usepotion();
+                    PokemonStatus status = new PokemonStatus(trainer);
+                    status.setVisible(true);
+                    setVisible(false);
+            }});
+            if( n > 1)
+            usebutton[1].addActionListener(new ActionListener(){  
+                public void actionPerformed(ActionEvent e){  
+                    trainer.GetExp(trainer.slot().get(1),30);
+                    trainer.usepotion();
+                    PokemonStatus status = new PokemonStatus(trainer);
+                    status.setVisible(true);
+                    setVisible(false);
+                    
+            }});
+            if( n > 2 )
+            usebutton[2].addActionListener(new ActionListener(){  
+                public void actionPerformed(ActionEvent e){  
+                    trainer.GetExp(trainer.slot().get(2),30);
+                    trainer.usepotion();
+                    PokemonStatus status = new PokemonStatus(trainer);
+                    status.setVisible(true);
+                    setVisible(false);
+                        
+            }});
+            if( n > 3 )
+            usebutton[3].addActionListener(new ActionListener(){  
+                public void actionPerformed(ActionEvent e){  
+                    trainer.GetExp(trainer.slot().get(3),30);
+                    trainer.usepotion();
+                    PokemonStatus status = new PokemonStatus(trainer);
+                    status.setVisible(true);
+                    setVisible(false);
+                    
+            }});
+            if( n > 4 )
+            usebutton[4].addActionListener(new ActionListener(){  
+                public void actionPerformed(ActionEvent e){  
+                    trainer.GetExp(trainer.slot().get(4),30);
+                    trainer.usepotion();
+                    PokemonStatus status = new PokemonStatus(trainer);
+                    status.setVisible(true);
+                    setVisible(false);
+                        
+            }});
+            if( n > 5 )
+            usebutton[5].addActionListener(new ActionListener(){  
+                public void actionPerformed(ActionEvent e){  
+                    trainer.GetExp(trainer.slot().get(5),30);
+                    trainer.usepotion();
+                    PokemonStatus status = new PokemonStatus(trainer);
+                    status.setVisible(true);
+                    setVisible(false);
+                    
+            }});
+            if( n > 6 )
+            usebutton[6].addActionListener(new ActionListener(){  
+                public void actionPerformed(ActionEvent e){  
+                    trainer.GetExp(trainer.slot().get(6),30);
+                    trainer.usepotion();
+                    PokemonStatus status = new PokemonStatus(trainer);
+                    status.setVisible(true);
+                    setVisible(false);
+                        
+            }}); 
+            if( n > 7 )
+            usebutton[7].addActionListener(new ActionListener(){  
+                public void actionPerformed(ActionEvent e){  
+                    trainer.GetExp(trainer.slot().get(7),30);
+                    trainer.usepotion();
+                    PokemonStatus status = new PokemonStatus(trainer);
+                    status.setVisible(true);
+                    setVisible(false);
+                    
+            }});
+            if( n > 8 )
+            usebutton[8].addActionListener(new ActionListener(){  
+                public void actionPerformed(ActionEvent e){  
+                    trainer.GetExp(trainer.slot().get(8),30);
+                    trainer.usepotion();
+                    PokemonStatus status = new PokemonStatus(trainer);
+                    status.setVisible(true);
+                    setVisible(false);
+                        
+            }});
+            if( n > 9 )
+            usebutton[9].addActionListener(new ActionListener(){  
+                public void actionPerformed(ActionEvent e){  
+                    trainer.GetExp(trainer.slot().get(9),30);
+                    trainer.usepotion();
+                    PokemonStatus status = new PokemonStatus(trainer);
+                    status.setVisible(true);
+                    setVisible(false);
+                    
+            }});
+               
+        }
         
+
         okButton.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
                 trainer.GetExp(trainer.slot().get(0),15);
@@ -83,7 +189,8 @@ public class UseItem extends JFrame{
         setVisible(true);
 
         }
-    
+
+        
         private void addItem(JPanel p, JComponent c, int x, int y, int width, int height, int align) {
             GridBagConstraints gc = new GridBagConstraints();
             gc.gridx = x;

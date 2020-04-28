@@ -2,12 +2,24 @@ import java.util.*;
 
 public class Trainer {
     private ArrayList<Pokemon> slot;
-    private Pokemon pokemon = new Pokemon();
+    private Pokemon pokemon = new Pokemon() ;
     private int potion = 1;
     private String name;
     
     public Trainer(String name){
         slot = new ArrayList<Pokemon>();
+        Pokemon pokemon1 = new Pokemon();
+        Pokemon pokemon2 = new Pokemon();
+        Pokemon pokemon3 = new Pokemon();
+        pokemon1.poke3();
+        slot.add(0,pokemon1);
+        pokemon2.poke2();
+        slot.add(1,pokemon2);
+        pokemon3.poke1();
+
+        slot.add(2,pokemon3);
+        
+
 
         this.name = name;
     }

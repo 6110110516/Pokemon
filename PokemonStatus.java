@@ -20,7 +20,7 @@ public class PokemonStatus extends JFrame
         
         for (int i =  0; i < 10; i++) {
             if(i < n)
-                labels[i] = new JLabel( i+1 + "  name : " + trainer.slot().get(i).getnameP() + "  level : " + trainer.slot().get(i).getlevel() + "  exp : " + trainer.slot().get(i).getexp());
+                labels[i] = new JLabel( i+1 + " | name : " + trainer.slot().get(i).getname() + " |  type : " + trainer.slot().get(i).getnameP() + " | level : " + trainer.slot().get(i).getlevel() + " | damage : " + trainer.slot().get(i).getDamage() +" |  HP : " + trainer.slot().get(i).getHP()+ " |  exp : " + trainer.slot().get(i).getexp()+ " |");
             else
                 labels[i] = new JLabel(i+1 + "---");
             textBox.add(labels[i]);

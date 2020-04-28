@@ -6,10 +6,11 @@ import java.awt.event.*;
 public class MainGame extends JFrame
 {
         private Trainer trainer;
-        // private int token = 1;
+        
         public MainGame(Trainer trainer){
         super("Pokemon Hio");
         this.trainer = trainer;
+        
         
         
         JButton jb1 = new JButton("New Pokemon");

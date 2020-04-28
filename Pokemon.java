@@ -2,11 +2,11 @@
 
 public class Pokemon
 {
-    private static int level = 0;
-    private static int Exp = 0;
+    private int level =0;
+    private int Exp = 0;
 
-    private static int HP = 0;
-    private static int Damage = 0;
+    private int HP = 0;
+    private int Damage = 0;
     private String nameP = "---";
     private String name = "---";
     public static void main(String[] args){
@@ -15,6 +15,9 @@ public class Pokemon
       
     public String getnameP()
     { return nameP; }
+
+    public String getname()
+    { return name; }
 
     public void expup(int exp){
         Exp += exp;
@@ -27,10 +30,10 @@ public class Pokemon
         Damage += 1;
     }
 
-    public static int getexp()
+    public  int getexp()
     { return Exp; }
 
-    public static int getlevel()
+    public  int getlevel()
     { return level; }
 
     public int getHP()
