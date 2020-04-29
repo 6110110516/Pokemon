@@ -23,9 +23,10 @@ public class Pokemon
         Exp += exp;
     }
 
-    public void Attack(int Damage){
-        HP -= Damage;
-    }
+    // public int Attack(int hp,int Damage){
+    //     hp -= Damage;
+    //     return hp;
+    // }
 
     public void levelup(){
         Exp -= 100;

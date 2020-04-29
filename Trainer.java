@@ -4,6 +4,8 @@ public class Trainer {
     private ArrayList<Pokemon> slot;
     private Pokemon pokemon = new Pokemon() ;
     private int potion = 5;
+    private int GB = 0;
+    private int GBr ;
     private String name;
     
     public Trainer(String name){
@@ -43,20 +45,38 @@ public class Trainer {
             pokemon.levelup();
     }
 
-    public String Battle(Pokemon mypoke,Pokemon wildpoke) {
+    public void GetGB(int getGb){
+        GB += getGb;
+        GBr = getGb;
+    }
+
+    public void payGB(int Gb){
+        GB -= Gb;
+    }
+
+    public int returnGB(){
+        return GB;
+    }
+
+    public int Battle(Pokemon mypoke,Pokemon wildpoke) {
         int HPmypoke = mypoke.getHP();
         int HPwildpoke = wildpoke.getHP();
-        
+     
         while(true){
-            if(HPmypoke > 0)
-                mypoke.Attack(mypoke.getDamage());
-            else    
-                return "lost";
-
-            if(HPwildpoke > 0)
-                wildpoke.Attack(wildpoke.getDamage());
-            else    
-                return "win";
+            if(HPmypoke > 0){
+                HPwildpoke = Attack(HPmypoke,mypoke.getDamage());
+                System.out.println("wildpoke : "+HPwildpoke+"/"+wildpoke.getHP());
+            }
+            else{
+                return 0;
+            }
+            if(HPwildpoke > 0){
+                HPmypoke = Attack(HPwildpoke,wildpoke.getDamage());
+                System.out.println("mypoke : "+HPmypoke+"/"+mypoke.getHP());
+            }
+            else{
+                return 1;
+            }
         }
     }
 
@@ -69,6 +89,11 @@ public class Trainer {
         pokemon.Nopoke();
 
         slot.add(pokemon);
+    }
+
+    public int Attack(int hp,int Damage){
+        hp -= Damage;
+        return hp;
     }
 
     public void play(){

@@ -30,8 +30,6 @@ public class PokemonStatus extends JFrame
 
         JButton close = new JButton("Back");
         JButton useButton = new JButton("Use item");
-        
-           
                                             
         Box buttonBox = Box.createHorizontalBox();
         

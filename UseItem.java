@@ -10,7 +10,7 @@ public class UseItem extends JFrame{
         this.trainer = trainer;
         int n = trainer.slot().size();
         int Potion = trainer.getpotion();
-        
+
         JPanel panel1 = new JPanel();
         panel1.setLayout(new GridBagLayout());
 
@@ -56,7 +56,7 @@ public class UseItem extends JFrame{
                                                       
         addItem(panel1, close, 2, 4, 1, 1, GridBagConstraints.CENTER);
         if(trainer.getpotion() > 0){
-            System.out.println(trainer.getpotion());
+            // System.out.println(trainer.getpotion());
             if( n > 0)
             usebutton[0].addActionListener(new ActionListener(){  
                 public void actionPerformed(ActionEvent e){  
