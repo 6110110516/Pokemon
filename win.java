@@ -6,17 +6,19 @@ import java.util.Random;
 public class win extends JFrame{
     private Trainer trainer;
     
-    public win(Trainer trainer,int level){
+    public win(Trainer trainer,Pokemon wildpokemon){
         super("Pokemon Win");
         this.trainer = trainer;
-        int exp = 12*level;
+        int exp = 12*wildpokemon.getlevel();
         Random rand = new Random();
         int GB = rand.nextInt(10);
+        int ball = trainer.getpokeball();
         trainer.GetGB(GB);
 
         JPanel panel1 = new JPanel();
         panel1.setLayout(new GridBagLayout());
 
+        JLabel Pokeball = new JLabel("Pokeball : "+ball);
         JButton Catch = new JButton("Catch");
         JButton leave = new JButton("leave");  
 
@@ -35,8 +37,24 @@ public class win extends JFrame{
         buttonBox.add(Catch);
         buttonBox.add(Box.createHorizontalStrut(20));
         buttonBox.add(leave);
-        addItem(panel1, buttonBox, 1, 4, 1, 1, GridBagConstraints.CENTER);
+
+        Box Boxs = Box.createVerticalBox();
+        Boxs.add(Pokeball);
+        Boxs.add(Box.createHorizontalStrut(20));
+        Boxs.add(buttonBox);
+        Pokeball.setAlignmentX(JButton.CENTER_ALIGNMENT);
+        addItem(panel1, Boxs, 1, 4, 1, 1, GridBagConstraints.CENTER);
         addItem(panel1, textbox, 1, 0, 1, 1, GridBagConstraints.CENTER);
+
+        Catch.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                if(trainer.getpokeball() > 0){
+                trainer.usepokeball();
+                Catch catchP = new Catch(trainer,wildpokemon);
+                catchP.setVisible(true);
+                setVisible(false);
+                }
+            }});
         
         leave.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  

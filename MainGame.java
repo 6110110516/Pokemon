@@ -12,9 +12,10 @@ public class MainGame extends JFrame
         this.trainer = trainer;
                
         JButton jb1 = new JButton("New Pokemon");
-        JButton jb2 = new JButton("Slot Pokemon");
+        JButton jb2 = new JButton("Bag");
         JButton jb3 = new JButton("Quit");
-        JButton jb4 = new JButton("Enter the forest");
+        JButton jb4 = new JButton("Forest");
+        JButton jb5 = new JButton("Shop");
         
         JPanel panel1 = new JPanel();
         panel1.setLayout(new GridBagLayout());
@@ -27,11 +28,14 @@ public class MainGame extends JFrame
         buttonBox.add(Box.createVerticalStrut(20));
         buttonBox.add(jb2);
         buttonBox.add(Box.createVerticalStrut(20));
+        buttonBox.add(jb5);
+        buttonBox.add(Box.createVerticalStrut(20));
         buttonBox.add(jb3);
         jb1.setAlignmentX(JButton.CENTER_ALIGNMENT);
         jb2.setAlignmentX(JButton.CENTER_ALIGNMENT);
         jb3.setAlignmentX(JButton.CENTER_ALIGNMENT);
         jb4.setAlignmentX(JButton.CENTER_ALIGNMENT);
+        jb5.setAlignmentX(JButton.CENTER_ALIGNMENT);
         // System.out.println(trainer.slot().size());
         addItem(panel1, buttonBox, 3, 4, 1, 1, GridBagConstraints.CENTER);
         
@@ -60,6 +64,12 @@ public class MainGame extends JFrame
             public void actionPerformed(ActionEvent e){  
                 Forest forest = new Forest(trainer);
                 forest.setVisible(true);
+                setVisible(false);
+        }});
+        jb5.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                Shop shop = new Shop(trainer);
+                shop.setVisible(true);
                 setVisible(false);
         }});
         

@@ -66,7 +66,7 @@ public class choosepokemon extends JFrame{
                 public void actionPerformed(ActionEvent e){  
                     if(trainer.Battle(trainer.slot().get(0), wildpokemon) == 1){
                         trainer.GetExp(trainer.slot().get(0),12*wildpokemon.getlevel());
-                        win w = new win(trainer,wildpokemon.getlevel());
+                        win w = new win(trainer,wildpokemon);
                         w.setVisible(true);
                         setVisible(false);
                     }
@@ -81,7 +81,7 @@ public class choosepokemon extends JFrame{
                 public void actionPerformed(ActionEvent e){  
                     if(trainer.Battle(trainer.slot().get(1), wildpokemon) == 1){
                         trainer.GetExp(trainer.slot().get(1),12*wildpokemon.getlevel());
-                        win w = new win(trainer,wildpokemon.getlevel());
+                        win w = new win(trainer,wildpokemon);
                         w.setVisible(true);
                         setVisible(false);
                     }
@@ -96,7 +96,7 @@ public class choosepokemon extends JFrame{
                 public void actionPerformed(ActionEvent e){  
                     if(trainer.Battle(trainer.slot().get(2), wildpokemon) == 1){
                         trainer.GetExp(trainer.slot().get(2),12*wildpokemon.getlevel());
-                        win w = new win(trainer,wildpokemon.getlevel());
+                        win w = new win(trainer,wildpokemon);
                         w.setVisible(true);
                         setVisible(false);
                     }
@@ -111,7 +111,7 @@ public class choosepokemon extends JFrame{
                 public void actionPerformed(ActionEvent e){  
                     if(trainer.Battle(trainer.slot().get(3), wildpokemon) == 1){
                         trainer.GetExp(trainer.slot().get(3),12*wildpokemon.getlevel());
-                        win w = new win(trainer,wildpokemon.getlevel());
+                        win w = new win(trainer,wildpokemon);
                         w.setVisible(true);
                         setVisible(false);
                     }
@@ -126,7 +126,7 @@ public class choosepokemon extends JFrame{
                 public void actionPerformed(ActionEvent e){  
                     if(trainer.Battle(trainer.slot().get(4), wildpokemon) == 1){
                         trainer.GetExp(trainer.slot().get(4),12*wildpokemon.getlevel());
-                        win w = new win(trainer,wildpokemon.getlevel());
+                        win w = new win(trainer,wildpokemon);
                         w.setVisible(true);
                         setVisible(false);
                     }
@@ -141,7 +141,7 @@ public class choosepokemon extends JFrame{
                 public void actionPerformed(ActionEvent e){  
                     if(trainer.Battle(trainer.slot().get(5), wildpokemon) == 1){
                         trainer.GetExp(trainer.slot().get(5),12*wildpokemon.getlevel());
-                        win w = new win(trainer,wildpokemon.getlevel());
+                        win w = new win(trainer,wildpokemon);
                         w.setVisible(true);
                         setVisible(false);
                     }
@@ -156,7 +156,7 @@ public class choosepokemon extends JFrame{
                 public void actionPerformed(ActionEvent e){  
                     if(trainer.Battle(trainer.slot().get(6), wildpokemon) == 1){
                         trainer.GetExp(trainer.slot().get(6),12*wildpokemon.getlevel());
-                        win w = new win(trainer,wildpokemon.getlevel());
+                        win w = new win(trainer,wildpokemon);
                         w.setVisible(true);
                         setVisible(false);
                     }
@@ -171,7 +171,7 @@ public class choosepokemon extends JFrame{
                 public void actionPerformed(ActionEvent e){  
                     if(trainer.Battle(trainer.slot().get(7), wildpokemon) == 1){
                         trainer.GetExp(trainer.slot().get(7),12*wildpokemon.getlevel());
-                        win w = new win(trainer,wildpokemon.getlevel());
+                        win w = new win(trainer,wildpokemon);
                         w.setVisible(true);
                         setVisible(false);
                     }
@@ -186,7 +186,7 @@ public class choosepokemon extends JFrame{
                 public void actionPerformed(ActionEvent e){  
                     if(trainer.Battle(trainer.slot().get(8), wildpokemon) == 1){
                         trainer.GetExp(trainer.slot().get(8),12*wildpokemon.getlevel());
-                        win w = new win(trainer,wildpokemon.getlevel());
+                        win w = new win(trainer,wildpokemon);
                         w.setVisible(true);
                         setVisible(false);
                     }
@@ -201,7 +201,7 @@ public class choosepokemon extends JFrame{
                 public void actionPerformed(ActionEvent e){  
                     if(trainer.Battle(trainer.slot().get(9), wildpokemon) == 1){
                         trainer.GetExp(trainer.slot().get(9),12*wildpokemon.getlevel());
-                        win w = new win(trainer,wildpokemon.getlevel());
+                        win w = new win(trainer,wildpokemon);
                         w.setVisible(true);
                         setVisible(false);
                     }

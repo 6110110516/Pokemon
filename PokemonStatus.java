@@ -10,12 +10,24 @@ public class PokemonStatus extends JFrame
         super("Pokemon Status ");
         this.trainer = trainer;
         int n = trainer.slot().size();
+        int Potion = trainer.getpotion();
+        int Gb = trainer.returnGB();
+        int Pokeball = trainer.getpokeball();
 
         JPanel panel1 = new JPanel();
         panel1.setLayout(new GridBagLayout());
+        
+        JLabel potion = new JLabel("Potion EXP : "+Potion);
+        JLabel GB = new JLabel("GB : "+Gb);
+        JLabel PokeB = new JLabel("Pokeball : "+Pokeball);
+        Box ItemBox = Box.createVerticalBox();
+        ItemBox.add(potion);
+        ItemBox.add(Box.createVerticalStrut(20));
+        ItemBox.add(PokeB);
+        ItemBox.add(Box.createVerticalStrut(100));
+        ItemBox.add(GB);
 
         Box textBox = Box.createVerticalBox();
-
         JLabel[] labels = new JLabel[10];
         
         for (int i =  0; i < 10; i++) {
@@ -27,6 +39,7 @@ public class PokemonStatus extends JFrame
             textBox.add(Box.createVerticalStrut(5));
             }
         addItem(panel1, textBox, 1, 0, 1, 1, GridBagConstraints.CENTER);
+        addItem(panel1, ItemBox, 2, 0, 1, 1, GridBagConstraints.CENTER);
 
         JButton close = new JButton("Back");
         JButton useButton = new JButton("Use item");
@@ -36,7 +49,7 @@ public class PokemonStatus extends JFrame
         buttonBox.add(useButton);
         buttonBox.add(Box.createHorizontalStrut(20));
         buttonBox.add(close);
-        addItem(panel1, buttonBox, 1, 4, 1, 1, GridBagConstraints.CENTER);
+        addItem(panel1, buttonBox, 2, 4, 1, 1, GridBagConstraints.CENTER);
         
         
         useButton.addActionListener(new ActionListener(){  
@@ -45,7 +58,6 @@ public class PokemonStatus extends JFrame
                 useitem.setVisible(true);
                 setVisible(false);
             }});    
-        
 
         close.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  

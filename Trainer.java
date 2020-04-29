@@ -4,23 +4,13 @@ public class Trainer {
     private ArrayList<Pokemon> slot;
     private Pokemon pokemon = new Pokemon() ;
     private int potion = 5;
-    private int GB = 0;
+    private int GB = 100;
     private int GBr ;
+    private int Pokeball = 0;
     private String name;
     
     public Trainer(String name){
         slot = new ArrayList<Pokemon>();
-        // Pokemon pokemon1 = new Pokemon();
-        // Pokemon pokemon2 = new Pokemon();
-        // Pokemon pokemon3 = new Pokemon();
-        // pokemon1.poke3();
-        // slot.add(0,pokemon1);
-        // pokemon2.poke2();
-        // slot.add(1,pokemon2);
-        // pokemon3.poke1();
-        // slot.add(2,pokemon3);
-        
-
 
         this.name = name;
     }
@@ -38,6 +28,17 @@ public class Trainer {
         potion++;
     }
 
+    public void usepokeball(){
+        Pokeball --;
+    }
+
+    public void buypokeball(){
+        Pokeball ++;
+    }
+
+    public int getpokeball(){
+        return Pokeball;
+    }
 
     public void GetExp(Pokemon pokemon,int exp){
         pokemon.expup(exp);
@@ -64,14 +65,14 @@ public class Trainer {
      
         while(true){
             if(HPmypoke > 0){
-                HPwildpoke = Attack(HPmypoke,mypoke.getDamage());
+                HPwildpoke = Attack(HPwildpoke,mypoke.getDamage());
                 System.out.println("wildpoke : "+HPwildpoke+"/"+wildpoke.getHP());
             }
             else{
                 return 0;
             }
             if(HPwildpoke > 0){
-                HPmypoke = Attack(HPwildpoke,wildpoke.getDamage());
+                HPmypoke = Attack(HPmypoke,wildpoke.getDamage());
                 System.out.println("mypoke : "+HPmypoke+"/"+mypoke.getHP());
             }
             else{
@@ -92,7 +93,7 @@ public class Trainer {
     }
 
     public int Attack(int hp,int Damage){
-        hp -= Damage;
+        hp = hp-Damage;
         return hp;
     }
 

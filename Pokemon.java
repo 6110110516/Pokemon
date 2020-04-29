@@ -51,6 +51,12 @@ public class Pokemon
         this.name = name;
     }
 
+    public void catchpokemon(Pokemon pokemon){
+        nameP = pokemon.getnameP();
+        level = pokemon.getlevel();
+        HP = pokemon.getHP();
+        Damage = pokemon.getDamage();
+    }
     
     public void Nopoke()
     {

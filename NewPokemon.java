@@ -76,7 +76,6 @@ public class NewPokemon extends JFrame{
         Box buttonBox = Box.createHorizontalBox();
         buttonBox.add(okButton);
         buttonBox.add(Box.createHorizontalStrut(20));
-        
         buttonBox.add(closeButton);
         addItem(panel1, buttonBox, 2, 4, 1, 1, GridBagConstraints.CENTER);
         
@@ -115,7 +114,7 @@ public class NewPokemon extends JFrame{
 
         closeButton.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
-                setVisible(false);
+                
                 MainGame maingame = new MainGame(trainer);
                 maingame.setVisible(true);
                 setVisible(false);
