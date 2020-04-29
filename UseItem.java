@@ -9,6 +9,7 @@ public class UseItem extends JFrame{
         super("UseItem");
         this.trainer = trainer;
         int n = trainer.slot().size();
+        int Potion = trainer.getpotion();
         
         JPanel panel1 = new JPanel();
         panel1.setLayout(new GridBagLayout());
@@ -19,19 +20,18 @@ public class UseItem extends JFrame{
         }
         Box potionBox = Box.createVerticalBox();
         // System.out.println(n);
-        JLabel nopotion = new JLabel("No Potion");
+        JLabel potion = new JLabel("Potion EXP : "+Potion);
         JLabel[] labels = new JLabel[10];
         JButton[] usebutton = new JButton[10];
         
         
-
         for ( i =  0; i < 10; i++) {
             
             
             if(i < n){
                 
                 labels[i] = new JLabel( i+1 + " |  name : " + trainer.slot().get(i).getname() + "|  type : " + trainer.slot().get(i).getnameP() +"|  level : " + trainer.slot().get(i).getlevel() + "|  exp : " + trainer.slot().get(i).getexp()+" | ");
-                usebutton[i] = new JButton("Use Potion");
+                usebutton[i] = new JButton("Use Potion EXP");
                 potionBox.add(usebutton[i]);
                 box[i].add(labels[i]);   
                 box[i].add(Box.createHorizontalStrut(5));         
@@ -50,19 +50,11 @@ public class UseItem extends JFrame{
             potionBox.add(Box.createVerticalStrut(5));
             }
         
-        addItem(panel1, potionBox, 1, 0, 1, 1, GridBagConstraints.CENTER);
-
-        JButton close = new JButton("Close");
-        
-        JButton okButton = new JButton("expup"); 
-           
-                                            
-        Box buttonBox = Box.createHorizontalBox();
-        buttonBox.add(okButton);
-        buttonBox.add(Box.createHorizontalStrut(20));
-       
-        buttonBox.add(close);
-        addItem(panel1, buttonBox, 1, 4, 1, 1, GridBagConstraints.CENTER);
+        addItem(panel1, potionBox, 1, 0, 1, 1, GridBagConstraints.EAST);
+        addItem(panel1, potion, 2, 0, 1, 1, GridBagConstraints.CENTER);
+        JButton close = new JButton("Back");
+                                                      
+        addItem(panel1, close, 2, 4, 1, 1, GridBagConstraints.CENTER);
         if(trainer.getpotion() > 0){
             System.out.println(trainer.getpotion());
             if( n > 0)
@@ -166,14 +158,7 @@ public class UseItem extends JFrame{
             }});
                
         }
-        
-
-        okButton.addActionListener(new ActionListener(){  
-            public void actionPerformed(ActionEvent e){  
-                trainer.GetExp(trainer.slot().get(0),15);
                 
-            }});
-
         close.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
                 PokemonStatus Status = new PokemonStatus(trainer);
@@ -187,10 +172,8 @@ public class UseItem extends JFrame{
         setSize(1000, 600);
         setLocation((Toolkit.getDefaultToolkit().getScreenSize().width  - getSize().width) / 2, (Toolkit.getDefaultToolkit().getScreenSize().height - getSize().height) / 2);
         setVisible(true);
-
         }
 
-        
         private void addItem(JPanel p, JComponent c, int x, int y, int width, int height, int align) {
             GridBagConstraints gc = new GridBagConstraints();
             gc.gridx = x;

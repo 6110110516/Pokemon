@@ -20,7 +20,7 @@ public class PokemonStatus extends JFrame
         
         for (int i =  0; i < 10; i++) {
             if(i < n)
-                labels[i] = new JLabel( i+1 + " | name : " + trainer.slot().get(i).getname() + " |  type : " + trainer.slot().get(i).getnameP() + " | level : " + trainer.slot().get(i).getlevel() + " | damage : " + trainer.slot().get(i).getDamage() +" |  HP : " + trainer.slot().get(i).getHP()+ " |  exp : " + trainer.slot().get(i).getexp()+ " |");
+                labels[i] = new JLabel( i+1 + " | name : " + trainer.slot().get(i).getname() + " |  type : " + trainer.slot().get(i).getnameP() +  " | damage : " + trainer.slot().get(i).getDamage() +" |  HP : " + trainer.slot().get(i).getHP()+" | level : " + trainer.slot().get(i).getlevel() + " |  exp : " + trainer.slot().get(i).getexp()+ " |");
             else
                 labels[i] = new JLabel(i+1 + "---");
             textBox.add(labels[i]);
@@ -28,25 +28,19 @@ public class PokemonStatus extends JFrame
             }
         addItem(panel1, textBox, 1, 0, 1, 1, GridBagConstraints.CENTER);
 
-        JButton close = new JButton("Close");
+        JButton close = new JButton("Back");
         JButton useButton = new JButton("Use item");
-        JButton okButton = new JButton("expup"); 
+        
            
                                             
         Box buttonBox = Box.createHorizontalBox();
-        buttonBox.add(okButton);
-        buttonBox.add(Box.createHorizontalStrut(20));
+        
         buttonBox.add(useButton);
         buttonBox.add(Box.createHorizontalStrut(20));
         buttonBox.add(close);
         addItem(panel1, buttonBox, 1, 4, 1, 1, GridBagConstraints.CENTER);
         
-        okButton.addActionListener(new ActionListener(){  
-            public void actionPerformed(ActionEvent e){  
-                trainer.GetExp(trainer.slot().get(0),15);
-                
-            }});
-
+        
         useButton.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
                 UseItem useitem = new UseItem(trainer);

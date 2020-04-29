@@ -23,6 +23,10 @@ public class Pokemon
         Exp += exp;
     }
 
+    public void Attack(int Damage){
+        HP -= Damage;
+    }
+
     public void levelup(){
         Exp -= 100;
         level ++;
@@ -55,32 +59,49 @@ public class Pokemon
         Damage = 0;
     }
    
-    public void poke1()
-    {
-        nameP ="Bulbasaur";
-        level = 1;
-        HP = 100 ;
-        Damage = 5 ;
-    }
-    public void poke2()
-    {
-        nameP ="Charmander";
-        level = 1;
-        HP = 90;
-        Damage = 6;
-    }
-    public void poke3()
-    {
-        nameP ="Squirtle";
-        level = 1;
-        HP = 110;
-        Damage = 4;
-    }
-    public void poke4()
-    {
-        nameP ="Pidgey";
-        level = 1;
-        HP = 100;
-        Damage = 4;
+    public void poke(int NumP,int n){
+        if(NumP == 0){
+            nameP ="Bulbasaur";
+            level = n;
+            HP = 100 + (5*(n-1));
+            Damage = 5 + n-1;
+        }
+        else if(NumP == 1){
+            nameP ="Charmander";
+            level = n;
+            HP = 90 + (5*(n-1));
+            Damage = 6 + n-1;
+        }
+        else if(NumP == 2){
+            nameP ="Squirtle";
+            level = n;
+            HP = 110 + (5*(n-1));
+            Damage = 4 + n-1;
+        }
+        else if(NumP == 3){
+            nameP ="Pidgey";
+            level = n;
+            HP = 100 + (5*(n-1));
+            Damage = 4 + n-1;
+        }
+        else if(NumP == 4){
+            nameP ="Magikarp";
+            level = n;
+            HP = 102 + (5*(n-1));
+            Damage = 1 + n-1;
+        }
+        else if(NumP == 5){
+            nameP ="Eevee";
+            level = n;
+            HP = 110 + (5*(n-1));
+            Damage = 5 + n-1;
+        }
+        else if(NumP == 6){
+            nameP ="Kabigon";
+            level = n;
+            HP = 200 + (5*(n-1));
+            Damage = 5 + n-1;
+        }
+        
     }
 }

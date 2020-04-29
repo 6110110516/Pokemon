@@ -17,11 +17,8 @@ public class NewPokemon extends JFrame{
         JRadioButton Squirtle = new JRadioButton("Squirtle");
 
         JButton okButton = new JButton("New"); 
-        
-        JButton closeButton = new JButton("Close");
-    
-        
-
+        JButton closeButton = new JButton("Back");
+          
         JPanel panel1 = new JPanel();
         panel1.setLayout(new GridBagLayout());
         
@@ -58,19 +55,19 @@ public class NewPokemon extends JFrame{
                 else if(name.getText() != "" && Bulbasaur.isSelected()){
                     trainer.addP();
                     trainer.slot().get(0).Name(name.getText());
-                    trainer.slot().get(0).poke1();
+                    trainer.slot().get(0).poke(1,1);
                    
                 }
                 else if(name.getText() != "" && Charmander.isSelected()){
                     trainer.addP();
                     trainer.slot().get(0).Name(name.getText());
-                    trainer.slot().get(0).poke2();
+                    trainer.slot().get(0).poke(2,1);
                    
                 }
                 else if(name.getText() != "" && Squirtle.isSelected()){
                     trainer.addP();
                     trainer.slot().get(0).Name(name.getText());
-                    trainer.slot().get(0).poke3();
+                    trainer.slot().get(0).poke(3,1);
                 }
                 
                 setVisible(false);

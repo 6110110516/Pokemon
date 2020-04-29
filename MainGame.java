@@ -10,13 +10,11 @@ public class MainGame extends JFrame
         public MainGame(Trainer trainer){
         super("Pokemon Hio");
         this.trainer = trainer;
-        
-        
-        
+               
         JButton jb1 = new JButton("New Pokemon");
         JButton jb2 = new JButton("Slot Pokemon");
         JButton jb3 = new JButton("Quit");
-
+        JButton jb4 = new JButton("Enter the forest");
         
         JPanel panel1 = new JPanel();
         panel1.setLayout(new GridBagLayout());
@@ -25,12 +23,15 @@ public class MainGame extends JFrame
         
         buttonBox.add(jb1);
         buttonBox.add(Box.createVerticalStrut(20));
+        buttonBox.add(jb4);
+        buttonBox.add(Box.createVerticalStrut(20));
         buttonBox.add(jb2);
         buttonBox.add(Box.createVerticalStrut(20));
         buttonBox.add(jb3);
         jb1.setAlignmentX(JButton.CENTER_ALIGNMENT);
         jb2.setAlignmentX(JButton.CENTER_ALIGNMENT);
         jb3.setAlignmentX(JButton.CENTER_ALIGNMENT);
+        jb4.setAlignmentX(JButton.CENTER_ALIGNMENT);
         // System.out.println(trainer.slot().size());
         addItem(panel1, buttonBox, 3, 4, 1, 1, GridBagConstraints.CENTER);
         
@@ -41,27 +42,30 @@ public class MainGame extends JFrame
                 Newpokemon.setVisible(true);
                 setVisible(false);
                 }
-            }
-            
-        });
+        }});
         
         jb2.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
                 PokemonStatus Status = new PokemonStatus(trainer);
                 Status.setVisible(true);
                 setVisible(false);
-            }});
+        }});
 
         jb3.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
                 System.exit(0);
-            }});
-            
+        }});
         
+        jb4.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){  
+                Forest forest = new Forest(trainer);
+                forest.setVisible(true);
+                setVisible(false);
+        }});
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.add(panel1);
-        this.pack();
+        add(panel1);
+        pack();
         setSize(1000, 600);
         setLocation((Toolkit.getDefaultToolkit().getScreenSize().width  - getSize().width) / 2, (Toolkit.getDefaultToolkit().getScreenSize().height - getSize().height) / 2);
         setVisible(true);
@@ -80,5 +84,4 @@ public class MainGame extends JFrame
         gc.fill = GridBagConstraints.CENTER;
         p.add(c, gc);
     }
-
 } 
